@@ -3,7 +3,7 @@ import java.util.LinkedList;
 
 class Solution {
    // n line (번째 줄) r num (번째 자리) 
-	public int pascalUnit(int n, int r) {
+	/*public int pascalUnit(int n, int r) {
       long divisor=1;
       long dividenent=1;
       for(int i=0;i<(r-1);i++) {
@@ -11,8 +11,15 @@ class Solution {
          dividenent*=(r-1-i);
       }
       return (int)(divisor/dividenent);
-   }
-   
+   }*/
+	public int pascalUnit(int n, int r) {
+	      long divi=1;
+	      for(int i=0;i<(r-1);i++) {
+	         divi*=(n-1-i);
+	         divi/=(i+1);
+	      }
+	      return (int)(divi);
+	   }
     public List<List<Integer>> generate(int numRows) {
        List<List<Integer>> list = new LinkedList<List<Integer>>();
        for(int i=0;i<numRows;i++) {
