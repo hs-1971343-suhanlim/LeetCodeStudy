@@ -11,23 +11,23 @@ class Solution {
     public ListNode removeElements(ListNode head, int val) {
     	ListNode tmp = head;
     	ListNode bef = new ListNode();
+        bef.next = head;
     	ListNode sol = bef;
     	while(tmp!=null){
     		if(tmp.val==val) {
-    			while(tmp.next!=null&&tmp.next.val==val) {
-    				tmp = tmp.next;
-    			}
     			bef.next = tmp.next;
-    			tmp = tmp.next;
     		}
     		else
-    			bef.next=tmp;
-    		bef = bef.next;
-    		if(tmp!=null)
-    			tmp = tmp.next;
+    			bef = tmp;
+    		tmp = tmp.next;
     	}
     	head = sol;
     	return head.next;
+    }
+    public ListNode anotherWay(ListNode head, int val) {
+    	if(head==null) return null;
+    	head.next = anotherWay(head.next,val);
+    	return head.val==val ? head.next : head;
     }
 }/*
 class Solution {	
