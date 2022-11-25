@@ -1,0 +1,16 @@
+// 이진 탐색의 시간 복잡도는 O(logN) 
+// 단순 반복문을 통한 탐색시 시간 복잡도는 O(n)
+int target = n; // 검색할 목표 값 
+int low = 0;
+int high = 배열.length-1;
+
+while(low<=high){
+	mid = (low+high)/2;
+	if(배열[mid] == target)
+		return mid;
+	else if(배열[mid]>target)
+		high = mid -1;
+	else
+		low = mid +1; 
+}
+
